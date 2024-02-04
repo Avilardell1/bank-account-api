@@ -20,4 +20,9 @@ public class AddMoneyController {
     public void addMoney(@RequestBody Money money) throws Exception {
         this.service.addMoney(money);
     }
+
+    @PutMapping("/")
+    public Money extractMoney(@PathVariable String amount, @RequestBody Money money) throws Exception {
+        return this.service.extractMoney(amount, money);
+    }
 }

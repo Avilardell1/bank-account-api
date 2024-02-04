@@ -24,4 +24,13 @@ public class AddMoneyServiceImpl implements AddMoneyService {
             throw new Exception(ex.getMessage());
         }
     }
+
+    @Override
+    public Money extractMoney(String amount, Money money) throws Exception {
+        try {
+           return moneyRepository.updateMoney(amount, money);
+        } catch (Exception ex) {
+            throw new Exception(ex.getMessage());
+        }
+    }
 }
