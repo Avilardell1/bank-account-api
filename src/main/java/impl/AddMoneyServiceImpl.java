@@ -28,7 +28,10 @@ public class AddMoneyServiceImpl implements AddMoneyService {
     @Override
     public Money extractMoney(String amount, Money money) throws Exception {
         try {
-           return moneyRepository.updateMoney(amount, money);
+            Money money_extract = moneyRepository.findById(String.valueOf(money.getId())).get();
+            money_extract.setAmount(amount);
+            moneyRepository.save(money_extract);
+            return money_extract;
         } catch (Exception ex) {
             throw new Exception(ex.getMessage());
         }
