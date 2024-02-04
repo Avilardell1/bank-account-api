@@ -13,14 +13,14 @@ public class Common {
             return false;
         }
         try {
-            int modulusResult = calculateModulus(iban);
+            int modulusResult = calculate(iban);
             return (modulusResult == 1);
         } catch (CheckDigitException  ex) {
             return false;
         }
     }
 
-    private static int calculateModulus(String code) throws CheckDigitException {
+    private static int calculate(String code) throws CheckDigitException {
         String reformattedCode = code.substring(4) + code.substring(0, 4);
         long total = 0;
         for (int i = 0; i < reformattedCode.length(); i++) {
